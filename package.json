@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "clean": "rm -rf _data/results/* && rm -rf .log && rm -rf _site",
+    "clean": "rm -rf _data/results/* && rm -rf .log && rm -rf _site && rm -r _data/results-last-runs.json",
     "test-pages": "node run-tests",
     "build": "npx @11ty/eleventy --quiet",
     "start": "npx @11ty/eleventy --quiet --serve",
