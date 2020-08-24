@@ -1,6 +1,6 @@
 module.exports = {
-	name: "MDigi tools",
-	description: "MDigi tools",
+	name: "Mdigi tools",
+	description: "Mdigi tools",
 	options: {
 		frequency: 60 * 23, // (in minutes), 23 hours
 	},

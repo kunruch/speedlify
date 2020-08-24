@@ -52,7 +52,7 @@ counts:
 			{%- if site[newestKey].error %}
 				<td colspan="2"></td>
 			{%- else %}
-				<td class="leaderboard-lcp">{{ site[newestKey].largestContentfulPaint | displayTime }}</td>
+				<td class="leaderboard-lcp small">{{ site[newestKey].largestContentfulPaint | displayTime }}</td>
 				<td class="leaderboard-weight small">{{ site[newestKey].weight.total | displayFilesize | safe }}</td>
 				{%- set counts = counts | hundoCountTotals(site[newestKey]) %}
 				<td class="leaderboard-score">{% if showRank %}<speedlify-score class="leaderboard-score-circles{% if hundos === 4 %} leaderboard-score-circles-400{% endif %}" raw-data='{{ site[newestKey] | toJSON | safe }}'></speedlify-score><span class="leaderboard-score-sum leaderboard-number">{% if hundos === 4 %}😍{% else %}{{ site[newestKey] | lighthouseTotal }}{% endif %}</span>{% endif %}</td>

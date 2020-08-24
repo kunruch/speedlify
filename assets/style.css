@@ -34,7 +34,8 @@ html:not(.js) [data-js-only] {
 
 :link,
 :visited {
-	color: #fff;
+	color: #2ab9b3;
+	text-decoration: none;
 }
 
 summary {
