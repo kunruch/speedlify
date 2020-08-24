@@ -289,7 +289,7 @@ abbr {
 .date,
 .heart-hundo {
 	color: #aaa;
-	font-size: 0.8125em; /* 13px /16 */
+	font-size: 0.8125em !important; /* 13px /16 */
 }
 .leaderboard-score-circles {
 	display: inline-flex;

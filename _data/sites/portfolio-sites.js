@@ -1,6 +1,6 @@
 module.exports = {
-	name: "Static sites",
-	description: "Static Sites",
+	name: "Portfolio sites",
+	description: "Portfolio Sites",
 	options: {
 		frequency: 60 * 23, // (in minutes), 23 hours
 	},
