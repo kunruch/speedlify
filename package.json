@@ -10,7 +10,7 @@
     "build": "npx @11ty/eleventy --quiet",
     "dev": "npx @11ty/eleventy --quiet --serve",
     "zip": "node zip-results.js",
-    "prod": "npm run tests && npm run build"
+    "build-production": "npm run tests && npm run build"
   },
   "keywords": [
     "performance",
