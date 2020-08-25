@@ -1,6 +1,6 @@
 module.exports = {
-	name: "WordPress Blogs",
-	description: "WordPress Blogs",
+	name: "Blogs",
+	description: "Blogs built with WordPress",
 	options: {
 		frequency: 60 * 23, // 24 hours
 	},

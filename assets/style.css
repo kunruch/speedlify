@@ -73,11 +73,12 @@ abbr {
 }
 
 /* Speedlify specific styles */
-.speedlify-hed {
+h1.speedlify-hed {
 	text-align: center;
 	font-size: 2em;
-	text-transform: lowercase;
+	line-height: 1.5;
 	font-style: italic;
+	margin-bottom: 0.5em;
 }
 @media (min-width: 37.5em) { /* 600px */
 	.speedlify-hed {

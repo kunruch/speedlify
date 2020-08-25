@@ -11,9 +11,12 @@
 		</script>
 	</head>
 	<body>
-		<h1 class="speedlify-hed"><a href="/">speedlify.kunruch</a>{% if vertical %}:{{ vertical }}{% endif %}</h1>
+		<h1 class="speedlify-hed"><a href="/">Speedlify.Kunruch</a>{% if vertical %}<br>{{ sites[vertical].name }}{% endif %}</h1>
 		<p class="speedlify-subhed">
-			Benchmark {{ sites[vertical].description or "web pages" }} over time.
+			{{ sites[vertical].description }} 
+		</p>
+		<p class="speedlify-subhed small">
+			Benchmark of {{ sites[vertical].name or "web pages" }} over time.
 			{%- if maxResults %}
 				Updates <em>at most</em> once every {{ sites[vertical].options.frequency or 60 }} minutes. Only the last {{ maxResults }} result{% if maxResults != 1 %}s{% endif %} (and the oldest result) are shown.
 			{% endif %}
