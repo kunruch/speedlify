@@ -5,11 +5,12 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf _data/results/* && rm -rf .log && rm -rf _site && rm -r _data/results-last-runs.json",
-    "test": "node run-tests",
+    "clean-runs": "rm -r _data/results-last-runs.json",
+    "tests": "node run-tests",
     "build": "npx @11ty/eleventy --quiet",
     "dev": "npx @11ty/eleventy --quiet --serve",
     "zip": "node zip-results.js",
-    "prod": "npm run test && npm run build"
+    "prod": "npm run tests && npm run build"
   },
   "keywords": [
     "performance",

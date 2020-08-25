@@ -65,6 +65,7 @@ async function tryToPreventNetlifyBuildTimeout(dateTestsStarted, numberOfUrls) {
 	});
 
 	for(let file of verticals) {
+		let dateRunStarted = Date.now()
 		let group = require(file);
 		if(typeof group === "function") {
 			group = await group();
@@ -127,9 +128,15 @@ async function tryToPreventNetlifyBuildTimeout(dateTestsStarted, numberOfUrls) {
 		await Promise.all(promises);
 		lastRuns[key] = { timestamp: Date.now() };
 		console.log( `Finished testing "${key}".` );
+		
+		let timeForRun = (Date.now() - dateRunStarted)/(1000*60)
+		console.log(`Time elapsed for this run: ${timeForRun.toFixed(2)} minutes`)
 
 		// Write the last run time to avoid re-runs
 		await fs.writeFile(lastRunsFilename, JSON.stringify(lastRuns, null, 2));
 		console.log( `Last runs after "${key}":`, JSON.stringify(lastRuns) );
 	}
+
+	let timeElapsed = (Date.now() - dateTestsStarted)/(1000*60)
+	console.log(`Total Time elapsed: ${timeElapsed.toFixed(2)} minutes`)
 })();
