@@ -25,6 +25,8 @@ counts:
 				<th>URL</th>
 				<th class="leaderboard-hide-md">Built With</th>
 				<th class="leaderboard-hide-md">Host</th>
+				<th class="leaderboard-fcp">FCP</th>
+				<th class="leaderboard-lcp">LCP</th>
 				<th class="leaderboard-score">Lighthouse</th>
 				<th class="leaderboard-hide-sm">Page weight</th>
 				<th class="leaderboard-data-right"><span data-sr-only>Data and Graphs</span></th>
@@ -65,7 +67,8 @@ counts:
 				</td>
 				<td class="leaderboard-hide-md">
 					<img src="{{ site[newestKey].url | hostingImageUrl }}" width="60" height="60" alt="Hosting avatar for {{ site[newestKey].url | displayUrl }}" class="leaderboard-list-entry-thumbnail small" loading="lazy" decoding="async">
-				</td>
+				</td><td class="leaderboard-fcp small">{{ site[newestKey].firstContentfulPaint | displayTime }}</td>
+				</td><td class="leaderboard-lcp small">{{ site[newestKey].largestContentfulPaint | displayTime }}</td>
 			{%- if site[newestKey].error %}
 				<td colspan="2"></td>
 			{%- else %}
