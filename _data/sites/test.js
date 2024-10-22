@@ -3,10 +3,10 @@ module.exports = {
 	description: "Test Sites",
 	options: {
 		runs: 1,
-		frequency: 60 * 12, // (in minutes), 12 hours
+		frequency: 60 * 1, // (in minutes), 12 hours
 	},
 	urls: [
-		"https://wparm.kanishkkunal.com/",
+		"https://wproot.kunruch.com/",
 		"https://wptry.kunruch.com/"
 	]
 };
