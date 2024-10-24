@@ -517,6 +517,16 @@ abbr {
 	font-weight: 100;
 }
 
+
+.fcp-success {
+	color: #088645;
+}
+
+.lcp-success {
+	color: #088645;
+}
+
+
 .fcp-warning {
 	color: orange;
 }

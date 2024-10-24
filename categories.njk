@@ -62,10 +62,10 @@ counts:
 					{%- if hasRedirect %}<span class="leaderboard-redirect-warn">Redirect from <code class="url">{{ site[newestKey].requestedUrl | displayUrl(true) }}</code></span>{% endif -%}
 					{%- if site[newestKey].error %}<span class="leaderboard-redirect-error">Error</span>{% endif -%}
 				</td>
-				<td class="leaderboard-fcp small{% if site[newestKey].firstContentfulPaint > 1800 %} fcp-warning{% endif %}">{{ site[newestKey].firstContentfulPaint | displayTime }}</td>
-				<td class="leaderboard-lcp small{% if site[newestKey].largestContentfulPaint > 2500 %} lcp-warning{% endif %}">{{ site[newestKey].largestContentfulPaint | displayTime }}</td>
+				<td class="leaderboard-fcp small{% if site[newestKey].firstContentfulPaint > 1800 %} fcp-warning{% elseif site[newestKey].firstContentfulPaint < 1500 %} fcp-success{% endif %}">{{ site[newestKey].firstContentfulPaint | displayTime }}</td>
+				<td class="leaderboard-lcp small{% if site[newestKey].largestContentfulPaint > 2500 %} lcp-warning{% elseif site[newestKey].largestContentfulPaint < 2000 %} lcp-success{% endif %}">{{ site[newestKey].largestContentfulPaint | displayTime }}</td>
 				
-				<td class="small">{{ (site[newestKey].weight.total / 1024) | round(0) }} KB</td>
+				<td class="small">{{ (site[newestKey].weight.total / 1024 / 1024) | round(2) }} MB</td>
 			{%- if site[newestKey].error %}
 				<td colspan="2"></td>
 			{%- else %}
@@ -318,6 +318,7 @@ counts:
 		</div>
 	</dl>
 </div><!-- /leaderboard-wrapper -->
+
 
 
 
