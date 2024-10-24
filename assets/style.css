@@ -518,11 +518,9 @@ abbr {
 }
 
 .fcp-warning {
-    background-color: orange;
-    color: black;
+	color: orange;
 }
 
 .lcp-warning {
-    background-color: orange;
-    color: black;
+	color: orange;
 }
