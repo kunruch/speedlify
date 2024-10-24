@@ -33,7 +33,8 @@ counts:
 		</thead>
 		<tbody>
 		{%- set showRank = true %}
-		{%- for site in results | getSites(sites, vertical, isolatedKeys) | sortCumulativeScore %}
+		{%- set filteredSites = results | getSites(sites, vertical, isolatedKeys) | sortCumulativeScore %}
+		{%- for site in filteredSites %}
 			{%- set newestKey = site | getObjectKey(":newest") %}
 			{%- set key = site | getObjectKey %}
 			{%- set hundos = 0 %}
@@ -317,6 +318,7 @@ counts:
 		</div>
 	</dl>
 </div><!-- /leaderboard-wrapper -->
+
 
 
 

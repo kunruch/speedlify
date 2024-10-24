@@ -15,6 +15,11 @@ module.exports = {
     "https://demo.templateflip.com/awesome-app/",
     "https://demo.templateflip.com/start-simple/",
     "https://demo.templateflip.com/material-portfolio/",
-		"https://demo.templateflip.com/coming-soon-bootstrap-template/"
+		"https://demo.templateflip.com/coming-soon-bootstrap-template/",
+    "https://demo.templateflip.com/super-agency/",
+    "https://demo.templateflip.com/super-folio/",
+    "https://demo.templateflip.com/material-resume/",
+    "https://demo.templateflip.com/material-blog/",
+    "https://demo.templateflip.com/right-resume/",
 	]
 };
