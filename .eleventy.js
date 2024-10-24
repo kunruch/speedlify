@@ -369,4 +369,7 @@ module.exports = function(eleventyConfig) {
 		});
 	});
 
+	eleventyConfig.addFilter("removeTrailingSlash", function(url) {
+		return url.replace(/\/$/, "");
+	});
 };
