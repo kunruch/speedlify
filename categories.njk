@@ -27,6 +27,7 @@ counts:
 				<th class="leaderboard-hide-md">Host</th>
 				<th class="leaderboard-fcp">FCP</th>
 				<th class="leaderboard-lcp">LCP</th>
+				<th>Weight</th>
 				<th class="leaderboard-score">Lighthouse</th>
 				<th class="leaderboard-hide-sm">Page weight</th>
 				<th class="leaderboard-data-right"><span data-sr-only>Data and Graphs</span></th>
@@ -69,11 +70,13 @@ counts:
 					<img src="{{ site[newestKey].url | hostingImageUrl }}" width="60" height="60" alt="Hosting avatar for {{ site[newestKey].url | displayUrl }}" class="leaderboard-list-entry-thumbnail small" loading="lazy" decoding="async">
 				</td><td class="leaderboard-fcp small">{{ site[newestKey].firstContentfulPaint | displayTime }}</td>
 				</td><td class="leaderboard-lcp small">{{ site[newestKey].largestContentfulPaint | displayTime }}</td>
+				
+				<td class="small">{{ (site[newestKey].weight.total / 1024) | round(0) }} KB</td>
 			{%- if site[newestKey].error %}
 				<td colspan="2"></td>
 			{%- else %}
 				{%- set counts = counts | hundoCountTotals(site[newestKey]) %}
-				<td class="leaderboard-score">{% if showRank %}<is-land on:visible><speedlify-score class="leaderboard-score-circles{% if hundos === 4 %} leaderboard-score-circles-400{% endif %}" raw-data='{{ site[newestKey] | toJSON | safe }}'></speedlify-score></is-land><span class="leaderboard-score-sum leaderboard-number">{% if hundos === 4 %}😍{% else %}{{ site[newestKey] | lighthouseTotal }}{% endif %}</span>{% endif %}{% lighthouseSparkline site %}</td>
+				<td class="leaderboard-score">{% if showRank %}<is-land on:visible><speedlify-score class="leaderboard-score-circles{% if hundos === 4 %} leaderboard-score-circles-400{% endif %}" raw-data='{{ site[newestKey] | toJSON | safe }}'></speedlify-score></is-land><span class="leaderboard-score-sum leaderboard-number small">{% if hundos === 4 %}😍{% else %}{{ site[newestKey] | lighthouseTotal }}{% endif %}</span>{% endif %}{% lighthouseSparkline site %}</td>
 				<td class="leaderboard-hide-sm">{% weightSparkline site %}</td>
 				<td class="leaderboard-data-right"><a href="#details-{{ site[key].url | shortHash }}" data-expand-alias data-js-only><span class="leaderboard-expand-icon"></span> Data<span class="leaderboard-hide-md"> and Graphs</span></a></td>
 			{%- endif %}
