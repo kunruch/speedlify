@@ -126,6 +126,20 @@ module.exports = function(eleventyConfig) {
 		return `${day} <span class="leaderboard-hide-md">${pad(date.getHours())}:${pad(date.getMinutes())}</span>`;
 	});
 
+	eleventyConfig.addFilter("filterDuplicates", (obj) => {
+		return obj.filter((item, index, self) => {
+			let newestKeyA = Object.keys(item).sort().pop();
+			// Log the current item and its requestedUrl for debugging
+			console.log("Requested URL:", item[newestKeyA].requestedUrl);
+
+			// Find the first index of an item with the same requestedUrl
+			return index === self.findIndex((t) => {
+				let newestKeyB = Object.keys(t).sort().pop();
+				return t[newestKeyB].requestedUrl === item[newestKeyA].requestedUrl;
+			});
+		});
+	});
+
 	eleventyConfig.addFilter("sortCumulativeScore", (obj) => {
 		return obj.sort((a, b) => {
 

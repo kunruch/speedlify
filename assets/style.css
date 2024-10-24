@@ -164,9 +164,13 @@ abbr {
 	border-color: #888;
 }
 .leaderboard-list-entry-badrank {
-	border-top: 1px solid hsl(333, 100%, 20%);
-	border-bottom: 1px solid hsl(333, 100%, 20%);
+	background-color: rgba(254, 209, 180, 0.05);
 }
+
+.leaderboard-list-entry-badrank .leaderboard-number {
+	color: orange;
+}
+
 .js .leaderboard-list-entry-details:not(.expanded) {
 	display: none;
 }
