@@ -97,7 +97,7 @@ module.exports = function(eleventyConfig) {
 		if(url.endsWith("/index.html")) {
 			url = url.replace("/index.html", "/");
 		}
-		return url;
+		return url.replace(/\/$/, "");
 	});
 
 	eleventyConfig.addFilter("showDigits", function(num, digits) {
@@ -367,9 +367,5 @@ module.exports = function(eleventyConfig) {
 				return value === '0' ? value : value + unit.slice(0, 1);
 			},
 		});
-	});
-
-	eleventyConfig.addFilter("removeTrailingSlash", function(url) {
-		return url.replace(/\/$/, "");
 	});
 };
