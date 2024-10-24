@@ -516,3 +516,13 @@ abbr {
 .category-stats dd span {
 	font-weight: 100;
 }
+
+.fcp-warning {
+    background-color: orange;
+    color: black;
+}
+
+.lcp-warning {
+    background-color: orange;
+    color: black;
+}

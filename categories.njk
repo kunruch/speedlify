@@ -23,8 +23,6 @@ counts:
 				<th class="leaderboard-hide-md">Trophy</th>
 {%- endif %}
 				<th>URL</th>
-				<th class="leaderboard-hide-md">Built With</th>
-				<th class="leaderboard-hide-md">Host</th>
 				<th class="leaderboard-fcp">FCP</th>
 				<th class="leaderboard-lcp">LCP</th>
 				<th>Weight</th>
@@ -63,13 +61,8 @@ counts:
 					{%- if hasRedirect %}<span class="leaderboard-redirect-warn">Redirect from <code class="url">{{ site[newestKey].requestedUrl | displayUrl(true) }}</code></span>{% endif -%}
 					{%- if site[newestKey].error %}<span class="leaderboard-redirect-error">Error</span>{% endif -%}
 				</td>
-				<td class="leaderboard-hide-md">
-					<img src="{{ site[newestKey].url | generatorImageUrl }}" width="60" height="60" alt="Generator for {{ site[newestKey].url | displayUrl }}" class="leaderboard-list-entry-thumbnail small" loading="lazy" decoding="async">
-				</td>
-				<td class="leaderboard-hide-md">
-					<img src="{{ site[newestKey].url | hostingImageUrl }}" width="60" height="60" alt="Hosting avatar for {{ site[newestKey].url | displayUrl }}" class="leaderboard-list-entry-thumbnail small" loading="lazy" decoding="async">
-				</td><td class="leaderboard-fcp small">{{ site[newestKey].firstContentfulPaint | displayTime }}</td>
-				</td><td class="leaderboard-lcp small">{{ site[newestKey].largestContentfulPaint | displayTime }}</td>
+				<td class="leaderboard-fcp small{% if site[newestKey].firstContentfulPaint > 1800 %} fcp-warning{% endif %}">{{ site[newestKey].firstContentfulPaint | displayTime }}</td>
+				<td class="leaderboard-lcp small{% if site[newestKey].largestContentfulPaint > 2500 %} lcp-warning{% endif %}">{{ site[newestKey].largestContentfulPaint | displayTime }}</td>
 				
 				<td class="small">{{ (site[newestKey].weight.total / 1024) | round(0) }} KB</td>
 			{%- if site[newestKey].error %}
@@ -324,3 +317,6 @@ counts:
 		</div>
 	</dl>
 </div><!-- /leaderboard-wrapper -->
+
+
+
