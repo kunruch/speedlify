@@ -122,6 +122,11 @@ abbr {
 .leaderboard-url {
 	width: 100%;
 }
+
+.leaderboard-url code.url {
+	font-size: 0.96em;
+}
+
 .leaderboard-redirect-error,
 .leaderboard-redirect-warn {
 	text-transform: uppercase;
@@ -322,7 +327,7 @@ abbr {
 .date,
 .heart-hundo {
 	color: #aaa;
-	font-size: 0.8125em !important; /* 13px /16 */
+	font-size: 0.875em !important; /* 14px /16 */
 }
 .leaderboard-score-circles {
 	display: inline-flex;
@@ -518,19 +523,10 @@ abbr {
 }
 
 
-.fcp-success {
+.fcp-success, .lcp-success, .weight-success {
 	color: #088645;
 }
 
-.lcp-success {
-	color: #088645;
-}
-
-
-.fcp-warning {
-	color: orange;
-}
-
-.lcp-warning {
+.fcp-warning, .lcp-warning, .weight-warning {
 	color: orange;
 }
