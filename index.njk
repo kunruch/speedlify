@@ -8,21 +8,39 @@ layout: layout.njk
     {% if not category.hide %}
       {% set categoryUrls = results | getSites(sites, categoryName) %}
       {% set totalSites = categoryUrls.length %}
-      {% set totalScore = 0 %}
+      {% set totalPerformance = 0 %}
+      {% set totalAccessibility = 0 %}
+      {% set totalBestPractices = 0 %}
+      {% set totalSEO = 0 %}
       {% for site in categoryUrls %}
         {% set newestKey = site | getObjectKey(":newest") %}
         {% if site[newestKey].lighthouse %}
-          {% set totalScore = totalScore + (site[newestKey] | lighthouseTotal) %}
+          {% set totalPerformance = totalPerformance + site[newestKey].lighthouse.performance %}
+          {% set totalAccessibility = totalAccessibility + site[newestKey].lighthouse.accessibility %}
+          {% set totalBestPractices = totalBestPractices + site[newestKey].lighthouse.bestPractices %}
+          {% set totalSEO = totalSEO + site[newestKey].lighthouse.seo %}
         {% endif %}
       {% endfor %}
-      {% set averageScore = 0 %}
+      {% set avgPerformance = 0 %}
+      {% set avgAccessibility = 0 %}
+      {% set avgBestPractices = 0 %}
+      {% set avgSEO = 0 %}
       {% if totalSites > 0 %}
-        {% set averageScore = (totalScore / totalSites / 4) | round(2) %}
+        {% set avgPerformance = (totalPerformance / totalSites * 100) | round %}
+        {% set avgAccessibility = (totalAccessibility / totalSites * 100) | round %}
+        {% set avgBestPractices = (totalBestPractices / totalSites * 100) | round %}
+        {% set avgSEO = (totalSEO / totalSites * 100) | round %}
       {% endif %}
       <div class="category-card">
         <h2>{{ category.description or category.name or categoryName }}</h2>
         <p>Number of sites: {{ totalSites }}</p>
-        <p>Average Lighthouse Score: {{ averageScore }}</p>
+        <p>Average Lighthouse Scores:</p>
+        <ul>
+          <li>Performance: {{ avgPerformance }}</li>
+          <li>Accessibility: {{ avgAccessibility }}</li>
+          <li>Best Practices: {{ avgBestPractices }}</li>
+          <li>SEO: {{ avgSEO }}</li>
+        </ul>
         <a href="{{ ('/' + (category.name or categoryName) | lower | slug + '/') | url }}">View Details</a>
       </div>
     {% endif %}

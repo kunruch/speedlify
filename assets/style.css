@@ -584,3 +584,13 @@ abbr {
   font-weight: bold;
   color: #4CAF50;
 }
+
+.category-card ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0.5rem 0;
+}
+
+.category-card li {
+  margin-bottom: 0.25rem;
+}
