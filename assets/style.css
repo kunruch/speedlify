@@ -79,7 +79,7 @@ abbr {
 .speedlify-hed {
 	text-align: center;
 	font-size: 2em;
-	margin-bottom: 4rem;
+	text-transform: lowercase;
 	font-style: italic;
 }
 @media (min-width: 37.5em) { /* 600px */
@@ -512,12 +512,12 @@ abbr {
 .category-stats dt {
 	flex-grow: 999;
 	min-width: 9.375em; /* 150px /16 */
-	text-align: right;
+	text-align: center;
 }
 .category-stats dd {
 	flex-grow: 1;
-	text-align: right;
-	margin: 0 0 0 .5em;
+	text-align: center;
+	margin: 0 0.5em;
 	font-size: 2em;
 	font-variant-numeric: tabular-nums;
 	font-weight: 700;
@@ -593,4 +593,38 @@ abbr {
 
 .category-card li {
   margin-bottom: 0.25rem;
+}
+
+.category-card .category-stats {
+  margin: 1rem 0;
+}
+
+.category-card .category-stats-entry {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.category-card .leaderboard-score-circles {
+  display: inline-block;
+  margin-right: 0.5rem;
+}
+
+.category-card .leaderboard-score-circle {
+  display: inline-block;
+  width: 0.8em;
+  height: 0.8em;
+  border-radius: 50%;
+}
+
+.category-card .leaderboard-score-circle-green {
+  background-color: #0cce6b;
+}
+
+.category-card .leaderboard-score-circle-yellow {
+  background-color: #ffa400;
+}
+
+.category-card .leaderboard-score-circle-red {
+  background-color: #ff4e42;
 }

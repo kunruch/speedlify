@@ -33,14 +33,45 @@ layout: layout.njk
       {% endif %}
       <div class="category-card">
         <h2>{{ category.description or category.name or categoryName }}</h2>
-        <p>Number of sites: {{ totalSites }}</p>
-        <p>Average Lighthouse Scores:</p>
-        <ul>
-          <li>Performance: {{ avgPerformance }}</li>
-          <li>Accessibility: {{ avgAccessibility }}</li>
-          <li>Best Practices: {{ avgBestPractices }}</li>
-          <li>SEO: {{ avgSEO }}</li>
-        </ul>
+        <p>{{ totalSites }} URLs</p>
+        <dl class="category-stats">
+          <div class="category-stats-entry">
+            <dt>Performance</dt>
+            <dd>
+              <span class="leaderboard-score-circles">
+                <span class="leaderboard-score-circle {% if avgPerformance >= 90 %}leaderboard-score-circle-green{% elif avgPerformance >= 50 %}leaderboard-score-circle-yellow{% else %}leaderboard-score-circle-red{% endif %}"></span>
+              </span>
+              {{ avgPerformance }}
+            </dd>
+          </div>
+          <div class="category-stats-entry">
+            <dt>Accessibility</dt>
+            <dd>
+              <span class="leaderboard-score-circles">
+                <span class="leaderboard-score-circle {% if avgAccessibility >= 90 %}leaderboard-score-circle-green{% elif avgAccessibility >= 50 %}leaderboard-score-circle-yellow{% else %}leaderboard-score-circle-red{% endif %}"></span>
+              </span>
+              {{ avgAccessibility }}
+            </dd>
+          </div>
+          <div class="category-stats-entry">
+            <dt>Best Practices</dt>
+            <dd>
+              <span class="leaderboard-score-circles">
+                <span class="leaderboard-score-circle {% if avgBestPractices >= 90 %}leaderboard-score-circle-green{% elif avgBestPractices >= 50 %}leaderboard-score-circle-yellow{% else %}leaderboard-score-circle-red{% endif %}"></span>
+              </span>
+              {{ avgBestPractices }}
+            </dd>
+          </div>
+          <div class="category-stats-entry">
+            <dt>SEO</dt>
+            <dd>
+              <span class="leaderboard-score-circles">
+                <span class="leaderboard-score-circle {% if avgSEO >= 90 %}leaderboard-score-circle-green{% elif avgSEO >= 50 %}leaderboard-score-circle-yellow{% else %}leaderboard-score-circle-red{% endif %}"></span>
+              </span>
+              {{ avgSEO }}
+            </dd>
+          </div>
+        </dl>
         <a href="{{ ('/' + (category.name or categoryName) | lower | slug + '/') | url }}">View Details</a>
       </div>
     {% endif %}
