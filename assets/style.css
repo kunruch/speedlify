@@ -79,7 +79,7 @@ abbr {
 .speedlify-hed {
 	text-align: center;
 	font-size: 2em;
-	text-transform: lowercase;
+	margin-bottom: 4rem;
 	font-style: italic;
 }
 @media (min-width: 37.5em) { /* 600px */
@@ -536,11 +536,13 @@ abbr {
 }
 
 .categories-summary {
+	width: 100%;
+	margin: 5em auto;
+	max-width: 100rem; /* 1600px /16 */
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
   gap: 2rem;
-  margin-top: 2rem;
 }
 
 .category-card {
@@ -559,6 +561,7 @@ abbr {
 
 .category-card p {
   color: #aaaaaa;
+  margin: 0.5rem 0;
 }
 
 .category-card a {

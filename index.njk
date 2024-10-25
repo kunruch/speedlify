@@ -1,13 +1,28 @@
 ---
 layout: layout.njk
 ---
+<h1 class="speedlify-hed">Speedlify Dashboard</h1>
 
 <div class="categories-summary">
   {% for categoryName, category in sites %}
     {% if not category.hide %}
+      {% set categoryUrls = results | getSites(sites, categoryName) %}
+      {% set totalSites = categoryUrls.length %}
+      {% set totalScore = 0 %}
+      {% for site in categoryUrls %}
+        {% set newestKey = site | getObjectKey(":newest") %}
+        {% if site[newestKey].lighthouse %}
+          {% set totalScore = totalScore + (site[newestKey] | lighthouseTotal) %}
+        {% endif %}
+      {% endfor %}
+      {% set averageScore = 0 %}
+      {% if totalSites > 0 %}
+        {% set averageScore = (totalScore / totalSites / 4) | round(2) %}
+      {% endif %}
       <div class="category-card">
         <h2>{{ category.description or category.name or categoryName }}</h2>
-        <p>Number of sites: {{ category.urls.length }}</p>
+        <p>Number of sites: {{ totalSites }}</p>
+        <p>Average Lighthouse Score: {{ averageScore }}</p>
         <a href="{{ ('/' + (category.name or categoryName) | lower | slug + '/') | url }}">View Details</a>
       </div>
     {% endif %}
