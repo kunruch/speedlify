@@ -1,7 +1,7 @@
 ---
 layout: layout.njk
 ---
-<h1 class="speedlify-hed">Speedlify for KunRuch sites</h1>
+<h1 class="speedlify-hed">Speedlify Dashboard</h1>
 
 <div class="categories-summary">
   {% for categoryName, category in sites %}
@@ -12,6 +12,7 @@ layout: layout.njk
       {% set totalAccessibility = 0 %}
       {% set totalBestPractices = 0 %}
       {% set totalSEO = 0 %}
+      {% set lastRunTime = 0 %}
       {% for site in categoryUrls %}
         {% set newestKey = site | getObjectKey(":newest") %}
         {% if site[newestKey].lighthouse %}
@@ -19,6 +20,9 @@ layout: layout.njk
           {% set totalAccessibility = totalAccessibility + site[newestKey].lighthouse.accessibility %}
           {% set totalBestPractices = totalBestPractices + site[newestKey].lighthouse.bestPractices %}
           {% set totalSEO = totalSEO + site[newestKey].lighthouse.seo %}
+          {% if site[newestKey].timestamp > lastRunTime %}
+            {% set lastRunTime = site[newestKey].timestamp %}
+          {% endif %}
         {% endif %}
       {% endfor %}
       {% set avgPerformance = 0 %}
@@ -33,7 +37,9 @@ layout: layout.njk
       {% endif %}
       <div class="category-card">
         <h2>{{ category.description or category.name or categoryName }}</h2>
-        <p>Avg of {{ totalSites }} total URLs</p>
+        <p class="small">{{ totalSites }} URLs<br>
+					<timestamp-ago timestamp="{{ lastRunTime }}">{{ lastRunTime | displayDate | safe }}</timestamp-ago>
+        </p>
         <dl class="category-stats">
           <div class="category-stats-entry">
             <dt>Performance</dt>

@@ -123,7 +123,7 @@ module.exports = function(eleventyConfig) {
 		let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
 		let date = new Date(timestamp);
 		let day = `${months[date.getMonth()]} ${pad(date.getDate())}`;
-		return `${day} <span class="leaderboard-hide-md">${pad(date.getHours())}:${pad(date.getMinutes())}</span>`;
+		return `${day} ${pad(date.getHours())}:${pad(date.getMinutes())}`;
 	});
 
 	eleventyConfig.addFilter("filterDuplicates", (obj) => {
