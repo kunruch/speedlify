@@ -19,7 +19,7 @@ module.exports = {
     "https://demo.templateflip.com/super/super-agency",
     "https://demo.templateflip.com/super-folio/",
     "https://demo.templateflip.com/material-resume/",
-    "https://demo.templateflip.com/material-blog/",
     "https://demo.templateflip.com/right-resume/",
+    "https://demo.templateflip.com/starting-soon/"
 	]
 };
