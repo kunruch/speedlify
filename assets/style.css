@@ -534,3 +534,50 @@ abbr {
 .fcp-warning, .lcp-warning, .weight-warning {
 	color: orange;
 }
+
+.categories-summary {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.category-card {
+  background-color: #2c2e2f;
+  border-radius: 8px;
+  padding: 1.5rem;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.category-card h2 {
+  margin-top: 0;
+  color: #ffffff;
+}
+
+.category-card p {
+  color: #aaaaaa;
+}
+
+.category-card a {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  background-color: #4a4a4a;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.category-card a:hover {
+  background-color: #5a5a5a;
+}
+
+.category-card .average-score {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #4CAF50;
+}

@@ -2,4 +2,14 @@
 layout: layout.njk
 ---
 
-
+<div class="categories-summary">
+  {% for categoryName, category in sites %}
+    {% if not category.hide %}
+      <div class="category-card">
+        <h2>{{ category.description or category.name or categoryName }}</h2>
+        <p>Number of sites: {{ category.urls.length }}</p>
+        <a href="{{ ('/' + (category.name or categoryName) | lower | slug + '/') | url }}">View Details</a>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
