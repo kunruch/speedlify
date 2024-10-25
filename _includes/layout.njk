@@ -12,6 +12,7 @@
 		</script>
 	</head>
 	<body>
+		{% if page.url != "/" %}
 		<nav class="categories-nav">
 			<ul>
 				<li>
@@ -31,6 +32,7 @@
 				{%- endfor %}
 			</ul>
 		</nav>
+		{% endif %}
 
 		<main>
 			{{ content | safe }}
