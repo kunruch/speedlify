@@ -2,7 +2,7 @@ module.exports = {
 	name: "Themes",
 	description: "Themes",
 	options: {
-		runs: 3,
+		runs: 1,
 		frequency: 60 * 1, // (in minutes), 12 hours
 	},
 	urls: [
