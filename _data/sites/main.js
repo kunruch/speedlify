@@ -2,7 +2,7 @@ module.exports = {
 	name: "Main", // optional, falls back to object key
 	description: "Main",
 	options: {
-		runs: 1,
+		runs: 3,
 		frequency: 60 * 1, // (in minutes), 12 hours
 	},
 	urls: [

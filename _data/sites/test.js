@@ -2,7 +2,7 @@ module.exports = {
 	name: "tests", // optional, falls back to object key
 	description: "Test Sites",
 	options: {
-		runs: 1,
+		runs: 3,
 		frequency: 60 * 1, // (in minutes), 12 hours
 	},
 	urls: [
