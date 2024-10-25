@@ -79,7 +79,6 @@ abbr {
 .speedlify-hed {
 	text-align: center;
 	font-size: 2em;
-	text-transform: lowercase;
 	font-style: italic;
 }
 @media (min-width: 37.5em) { /* 600px */
@@ -105,7 +104,7 @@ abbr {
 }
 .leaderboard {
 	width: 100%;
-	margin: 5em auto;
+	margin: 2em auto;
 	max-width: 100rem; /* 1600px /16 */
 }
 .leaderboard-directlink {
@@ -221,6 +220,7 @@ abbr {
 }
 .leaderboard-data-right {
 	text-align: right;
+	font-size: 0.815em;
 }
 @media (max-width: 37.4375em) { /* 599px */
 	.leaderboard-hide-sm {
@@ -537,7 +537,7 @@ abbr {
 
 .categories-summary {
 	width: 100%;
-	margin: 5em auto;
+	margin: 2em auto;
 	max-width: 100rem; /* 1600px /16 */
   display: flex;
   flex-wrap: wrap;
