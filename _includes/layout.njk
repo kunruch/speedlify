@@ -12,19 +12,21 @@
 		</script>
 	</head>
 	<body>
-		<header>
-			<h1 class="speedlify-hed"><a href="{{ '/' | url }}">speedlify</a>{% if vertical %} / {{ vertical }}{% endif %}</h1>
-			<p class="speedlify-subhed">
-				Benchmark {{ sites[vertical].description or "web pages" }} over time.
-				{%- if sites[vertical].unordered %}
-					Results for this category are unordered.
-				{%- endif %}
-				{%- if maxResults %}
-					Updates <em>at most</em> once every {{ sites[vertical].options.frequency or 60 }} minutes. Only the last {{ maxResults }} run{% if maxResults != 1 %}s{% endif %} (and the oldest run) are shown.
-				{%- endif %}
-			</p>
-		</header>
-
+		<nav class="categories-nav">
+			<ul>
+				{%- for key, category in sites %}
+					{%- if not category.hide %}
+						<li>
+							<a href="{{ ('/' + (category.name or key) | lower | slug + '/') | url }}">
+								{{ category.description or category.name or key }}
+								<span class="category-count">({{ category.urls.length }})</span>
+							</a>
+						</li>
+					{%- endif %}
+				{%- endfor %}
+			</ul>
+		</nav>
+		
 		<main>
 			{{ content | safe }}
 		</main>
@@ -37,3 +39,40 @@
 		<script defer src="{{ '/script.js' | url }}"></script>
 	</body>
 </html>
+
+<style>
+	main {
+		min-height: 80vh;
+	}
+
+  .categories-nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .categories-nav li {
+    margin: 0.5rem;
+  }
+
+  .categories-nav a {
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+  }
+
+  .categories-nav a:hover {
+    background-color: #121212;
+  }
+
+  .category-count {
+    font-size: 0.8em;
+    color: #aaa;
+  }
+</style>
