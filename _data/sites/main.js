@@ -3,7 +3,7 @@ module.exports = {
 	description: "Main",
 	options: {
 		runs: 1,
-		frequency: 60 * 1, // (in minutes), 12 hours
+		frequency: 60 * 1, // (in minutes), 1 hours
 	},
 	urls: [
 		"https://kunruchcreations.com/",

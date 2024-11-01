@@ -3,7 +3,7 @@ module.exports = {
 	description: "Themes",
 	options: {
 		runs: 1,
-		frequency: 60 * 1, // (in minutes), 12 hours
+		frequency:  60 * 24 * 5, // (in minutes), 5 days
 	},
 	urls: [
     "https://wpdemo.templateflip.com/fastr/",
