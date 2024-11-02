@@ -3,7 +3,7 @@ module.exports = {
 	description: "Test Sites",
 	options: {
 		runs: 1,
-		frequency:  60 * 24 * 5, // (in minutes), 5 days
+		frequency:  60 * 24 * 15, // (in minutes), 15 days
 	},
 	urls: [
 		"https://wproot.kunruch.com/",

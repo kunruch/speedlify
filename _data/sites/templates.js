@@ -3,7 +3,7 @@ module.exports = {
 	description: "Templates",
 	options: {
 		runs: 1,
-		frequency: 60 * 24 * 5, // (in minutes), 5 days
+		frequency: 60 * 24 * 7, // (in minutes), 7 days
 	},
 	urls: [
     "https://demo.templateflip.com/material-app/",
